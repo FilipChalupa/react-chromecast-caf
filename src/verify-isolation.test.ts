@@ -1,5 +1,5 @@
-import { Cast as CastReceiver } from './types/Receiver'
-import { Cast as CastSender } from './types/Sender'
+import { ReceiverCast as CastReceiver } from './receiver-capture'
+import { SenderCast as CastSender } from './sender-capture'
 
 // This function will only compile if the types are DIFFERENT.
 // If they merged into one global type, this test would pass silently (which is bad).

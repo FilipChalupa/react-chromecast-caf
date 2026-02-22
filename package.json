@@ -41,11 +41,13 @@
 	"files": [
 		"/dist/"
 	],
+	"dependencies": {
+		"@types/chromecast-caf-receiver": "^6.0.25",
+		"@types/chromecast-caf-sender": "^1.0.11"
+	},
 	"devDependencies": {
 		"@rollup/plugin-commonjs": "^25.0.8",
 		"@rollup/plugin-node-resolve": "^15.0.1",
-		"@types/chromecast-caf-receiver": "^6.0.25",
-		"@types/chromecast-caf-sender": "^1.0.11",
 		"@types/react": "^18.0.26",
 		"react": "^18.2.0",
 		"rollup": "^4.59.0",

@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
-import type { Cast } from './types/Receiver'
+import type { SenderCast } from './sender-capture'
+export { SenderCast }
 
-type Sender = {
-	chrome: any // @TODO: Chrome
-	cast: Cast
+export type Sender = {
+	cast: SenderCast
+	// @TODO: Add chrome
 }
 
 const load = (() => {
@@ -18,7 +19,6 @@ const load = (() => {
 				window.__onGCastApiAvailable = (isAvailable) => {
 					if (isAvailable) {
 						resolve({
-							chrome,
 							cast,
 						})
 					}
@@ -34,11 +34,9 @@ export const useChromecastCafSender = () => {
 	const [sender, setSender] = useState<
 		| Sender
 		| {
-				chrome: null
 				cast: null
 		  }
 	>({
-		chrome: null,
 		cast: null,
 	})
 

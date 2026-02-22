@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
-import { type Cast } from './types/Receiver'
+import type { ReceiverCast } from './receiver-capture'
 
-type Receiver = {
-	cast: Cast
+export type Receiver = {
+	cast: ReceiverCast
+	// @TODO: Add framework and debug
 }
 
 const load = (() => {
@@ -19,7 +20,7 @@ const load = (() => {
 				const loop = () => {
 					if ('cast' in window && 'framework' in cast) {
 						resolve({
-							cast,
+							cast: cast as unknown as ReceiverCast,
 						})
 						return
 					}
