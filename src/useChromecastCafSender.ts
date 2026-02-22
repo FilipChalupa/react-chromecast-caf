@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
 import type { SenderCast } from './sender-capture'
-export { SenderCast }
+import { SenderChrome } from './sender-capture'
 
 export type Sender = {
 	cast: SenderCast
-	// @TODO: Add chrome
+	chrome: SenderChrome
 }
 
 const load = (() => {
@@ -20,6 +20,7 @@ const load = (() => {
 					if (isAvailable) {
 						resolve({
 							cast,
+							chrome,
 						})
 					}
 				}
@@ -35,9 +36,11 @@ export const useChromecastCafSender = () => {
 		| Sender
 		| {
 				cast: null
+				chrome: null
 		  }
 	>({
 		cast: null,
+		chrome: null,
 	})
 
 	useEffect(() => {
