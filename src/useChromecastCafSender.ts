@@ -1,5 +1,5 @@
-import type { Cast, Chrome } from 'cast-sender-module'
 import { useEffect, useState } from 'react'
+import type { Cast, Chrome } from 'cast-sender-module'
 
 type Sender = {
 	chrome: Chrome
