@@ -26,7 +26,15 @@ export default {
 		commonjs(),
 		typescript({ sourceMap: true }),
 		copy({
-			targets: [{ src: 'src/types/cast-shim.d.ts', dest: 'dist/types' }],
+			// Hack to keep triple slash directives
+			targets: [
+				{
+					src: 'src/sender-capture.ts',
+					dest: 'dist',
+					rename: 'sender-capture.d.ts',
+				},
+			],
+			hook: 'writeBundle',
 		}),
 	],
 }
