@@ -31,7 +31,16 @@ const load = (() => {
 })()
 
 export const useChromecastCafSender = () => {
-	const [sender, setSender] = useState<Sender | null>(null)
+	const [sender, setSender] = useState<
+		| Sender
+		| {
+				chrome: null
+				cast: null
+		  }
+	>({
+		chrome: null,
+		cast: null,
+	})
 
 	useEffect(() => {
 		load().then((sender) => {

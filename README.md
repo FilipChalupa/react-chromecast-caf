@@ -1,22 +1,32 @@
-# Use Chromecast sender [![npm](https://img.shields.io/npm/v/use-chromecast-caf-sender.svg)](https://www.npmjs.com/package/use-chromecast-caf-sender) ![npm type definitions](https://img.shields.io/npm/types/use-chromecast-caf-sender.svg)
+# Use Chromecast sender [![npm](https://img.shields.io/npm/v/react-chromecast-caf.svg)](https://www.npmjs.com/package/react-chromecast-caf) ![npm type definitions](https://img.shields.io/npm/types/react-chromecast-caf.svg)
 
-React hook to use the [Chromecast sender SDK](https://developers.google.com/cast/docs/web_sender/integrate) in your project.
+React hook to use the [Chromecast sender SDK](https://developers.google.com/cast/docs/web_sender/integrate) and [Chromecast receiver SDK](https://developers.google.com/cast/docs/web_receiver) in your project.
 
 ## Installation
 
 ```bash
-npm install use-chromecast-caf-sender
+npm install react-chromecast-caf
 ```
 
 ## How to use
 
 ```jsx
-import { useChromecastSender } from 'use-chromecast-caf-sender'
+import { useChromecastCafSender } from 'react-chromecast-caf'
 
 const Component = () => {
-	const { cast } = useChromecastSender()
+	const { cast } = useChromecastCafSender()
 
 	return <div>{cast === null ? 'Loading' : 'Cast sender sdk is loaded'}</div>
+}
+```
+
+```jsx
+import { useChromecastCafReceiver } from 'react-chromecast-caf'
+
+const Component = () => {
+	const { cast } = useChromecastCafReceiver()
+
+	return <div>{cast === null ? 'Loading' : 'Cast receiver sdk is loaded'}</div>
 }
 ```
 
