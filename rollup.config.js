@@ -4,6 +4,7 @@ import path from 'path'
 import del from 'rollup-plugin-delete'
 import peerDepsExternal from 'rollup-plugin-peer-deps-external'
 import typescript from 'rollup-plugin-typescript2'
+import copy from 'rollup-plugin-copy'
 import packageJson from './package.json' with { type: 'json' }
 
 const outputDirectory = path.parse(packageJson.main).dir
@@ -29,5 +30,8 @@ export default {
 		}),
 		commonjs(),
 		typescript({ sourceMap: true }),
+		copy({
+			targets: [{ src: 'src/types/cast-shim.d.ts', dest: 'dist/types' }],
+		}),
 	],
 }
