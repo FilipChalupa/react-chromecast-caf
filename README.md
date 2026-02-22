@@ -34,7 +34,7 @@ const SenderComponent = () => {
 	const { cast, chrome } = useChromecastCafSender()
 
 	if (!cast) {
-		return <div>Loading Chromecast Sender SDK...</div>
+		return <div>Loading Chromecast Sender SDK…</div>
 	}
 
 	return (
@@ -59,7 +59,7 @@ const ReceiverComponent = () => {
 	const { cast } = useChromecastCafReceiver()
 
 	if (!cast) {
-		return <div>Loading Chromecast Receiver SDK...</div>
+		return <div>Loading Chromecast Receiver SDK…</div>
 	}
 
 	return (
