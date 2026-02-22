@@ -34,7 +34,7 @@ const load = (() => {
 	}
 })()
 
-export const useChromecastReceiver = () => {
+export const useChromecastCafReceiver = () => {
 	const [receiver, setReceiver] = useState<Receiver | null>(null)
 
 	useEffect(() => {
