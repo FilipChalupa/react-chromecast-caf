@@ -7,7 +7,9 @@
 		"lib": ["es6", "dom", "es2024"],
 		"sourceMap": true,
 		"jsx": "react-jsx",
-		"moduleResolution": "bundler",
+		"moduleResolution": "node",
+		"types": [],
+		"skipLibCheck": true,
 		"allowSyntheticDefaultImports": true,
 		"strictNullChecks": true,
 		"esModuleInterop": true

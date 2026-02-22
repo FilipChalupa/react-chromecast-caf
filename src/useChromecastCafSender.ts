@@ -1,8 +1,8 @@
-import type { Cast, Chrome } from 'chromecast-caf-sender-module'
 import { useEffect, useState } from 'react'
+import type { Cast } from './types/Receiver'
 
 type Sender = {
-	chrome: Chrome
+	chrome: any // @TODO: Chrome
 	cast: Cast
 }
 

@@ -1,5 +1,5 @@
-import { type Cast } from 'chromecast-caf-receiver-module'
 import { useEffect, useState } from 'react'
+import { type Cast } from './types/Receiver'
 
 type Receiver = {
 	cast: Cast
