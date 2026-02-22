@@ -16,7 +16,11 @@ export default {
 		sourcemap: true,
 		preserveModules: true,
 	},
-	external: ['react', 'cast-receiver-module', 'cast-sender-module'],
+	external: [
+		'react',
+		'chromecast-caf-receiver-module',
+		'chromecast-caf-sender-module',
+	],
 	plugins: [
 		del({ targets: outputDirectory + '/*' }),
 		peerDepsExternal(),
