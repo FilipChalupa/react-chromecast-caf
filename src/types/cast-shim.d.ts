@@ -1,10 +1,10 @@
 declare module 'cast-receiver-module' {
 	import '@types/chromecast-caf-receiver'
-	export const cast: typeof window.cast
+	export type Cast = typeof window.cast
 }
 
 declare module 'cast-sender-module' {
 	import '@types/chromecast-caf-sender'
-	export const cast: typeof window.cast
-	export const chrome: typeof window.chrome
+	export type Cast = typeof window.cast
+	export type Chrome = typeof window.chrome
 }

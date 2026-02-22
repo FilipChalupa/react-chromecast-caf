@@ -1,8 +1,8 @@
-import { cast } from 'cast-receiver-module'
+import { type Cast } from 'cast-receiver-module'
 import { useEffect, useState } from 'react'
 
 type Receiver = {
-	cast: typeof cast
+	cast: Cast
 }
 
 const load = (() => {

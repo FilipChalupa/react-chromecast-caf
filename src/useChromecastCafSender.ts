@@ -1,9 +1,9 @@
-import { cast, chrome } from 'cast-sender-module'
+import type { Cast, Chrome } from 'cast-sender-module'
 import { useEffect, useState } from 'react'
 
 type Sender = {
-	chrome: typeof chrome
-	cast: typeof cast
+	chrome: Chrome
+	cast: Cast
 }
 
 const load = (() => {
