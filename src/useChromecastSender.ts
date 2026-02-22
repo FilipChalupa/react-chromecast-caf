@@ -30,10 +30,7 @@ const load = (() => {
 })()
 
 export const useChromecastSender = () => {
-	const [sender, setSender] = useState<Sender | { chrome: null; cast: null }>({
-		chrome: null,
-		cast: null,
-	})
+	const [sender, setSender] = useState<Sender | null>(null)
 
 	useEffect(() => {
 		load().then((sender) => {
