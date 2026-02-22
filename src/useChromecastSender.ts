@@ -1,3 +1,4 @@
+import { cast, chrome } from 'cast-sender-module'
 import { useEffect, useState } from 'react'
 
 type Sender = {

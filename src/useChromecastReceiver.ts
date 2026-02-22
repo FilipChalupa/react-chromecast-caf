@@ -1,3 +1,4 @@
+import { cast } from 'cast-receiver-module'
 import { useEffect, useState } from 'react'
 
 type Receiver = {
