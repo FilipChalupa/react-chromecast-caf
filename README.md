@@ -31,10 +31,13 @@ import React from 'react'
 import { useChromecastCafSender } from 'react-chromecast-caf'
 
 const SenderComponent = () => {
-	const { cast, chrome } = useChromecastCafSender()
+	const { cast, chrome, isAvailable } = useChromecastCafSender()
 
-	if (!cast) {
+	if (isAvailable === null) {
 		return <div>Loading Chromecast Sender SDK…</div>
+	}
+	if (!isAvailable) {
+		return <div>Casting is not available in this browser.</div>
 	}
 
 	return (
@@ -56,8 +59,11 @@ import React from 'react'
 import { useChromecastCafReceiver } from 'react-chromecast-caf'
 
 const ReceiverComponent = () => {
-	const { cast } = useChromecastCafReceiver()
+	const { cast, error } = useChromecastCafReceiver()
 
+	if (error) {
+		return <div>Failed to load Chromecast Receiver SDK.</div>
+	}
 	if (!cast) {
 		return <div>Loading Chromecast Receiver SDK…</div>
 	}
@@ -74,15 +80,24 @@ const ReceiverComponent = () => {
 
 ## ⚙️ API
 
-### `useChromecastCafSender(): { chrome: Chrome | null, cast: Cast | null }`
+### `useChromecastCafSender(): { chrome, cast, isAvailable, error }`
 
 A React hook that loads the Chromecast Web Sender SDK.
 
 - **`chrome`**: The `chrome` object from the SDK, or `null` otherwise.
 - **`cast`**: The `cast` object from the SDK, or `null` otherwise.
+- **`isAvailable`**: `null` while loading, `true` when casting is available, `false` when the browser cannot cast (e.g. Firefox, Safari) or the SDK failed to load.
+- **`error`**: An `Error` when the SDK script failed to load, `null` otherwise.
 
-### `useChromecastCafReceiver(): { cast: Cast | null }`
+A callback already assigned to `window.__onGCastApiAvailable` by other code is kept and still called.
+
+### `useChromecastCafReceiver(): { cast, error }`
 
 A React hook that initializes the Chromecast Web Receiver SDK.
 
 - **`cast`**: The `cast` object from the SDK, or `null` otherwise.
+- **`error`**: An `Error` when the SDK script failed to load, `null` otherwise.
+
+### `loadChromecastCafSender()` / `loadChromecastCafReceiver()`
+
+The loaders behind the hooks, for use outside React. They load the SDK only once, never reject and resolve with the same objects the hooks return.

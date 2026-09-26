@@ -1,3 +1,4 @@
+import { expect, it } from 'vitest'
 import { ReceiverCast as CastReceiver } from './receiver-capture'
 import { SenderCast as CastSender } from './sender-capture'
 
@@ -16,3 +17,7 @@ function assertIsolated() {
 	console.log(receiver)
 	console.log(sender)
 }
+
+it('keeps sender and receiver types isolated (checked by tsc)', () => {
+	expect(assertIsolated).toBeTypeOf('function')
+})

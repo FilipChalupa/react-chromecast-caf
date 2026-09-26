@@ -24,7 +24,13 @@ export default {
 			extensions: ['.js', '.jsx', '.ts', '.tsx'],
 		}),
 		commonjs(),
-		typescript({ sourceMap: true }),
+		typescript({
+			sourceMap: true,
+			// Tests are type-checked by `npm test`, but must not ship in dist.
+			tsconfigOverride: {
+				exclude: ['node_modules', 'dist', 'src/**/*.test.ts'],
+			},
+		}),
 		copy({
 			// Hack to keep triple slash directives
 			targets: [
