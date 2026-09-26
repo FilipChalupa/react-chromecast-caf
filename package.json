@@ -16,7 +16,7 @@
 		"dev": "npm start",
 		"build": "rollup -c",
 		"prepare": "npm run build",
-		"test": "vitest typecheck"
+		"test": "tsc --noEmit && vitest run"
 	},
 	"repository": {
 		"type": "git",
@@ -49,6 +49,7 @@
 		"@rollup/plugin-commonjs": "^25.0.8",
 		"@rollup/plugin-node-resolve": "^15.0.1",
 		"@types/react": "^18.0.26",
+		"jsdom": "^25.0.1",
 		"react": "^18.2.0",
 		"rollup": "^4.59.0",
 		"rollup-plugin-copy": "^3.5.0",
